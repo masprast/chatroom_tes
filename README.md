@@ -1,24 +1,56 @@
-### About
+# README
 Ini adalah aplikasi berbasis *web* dengan *backend* menggunakan `Ruby on Rails` dengan *database* `PostgreSQL`. Aplikasi ini dibangun menggunakan teknologi `Docker`. Dan *framework* `Tailwind CSS` untuk presentasi dari aplikasi.
 
 Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang diselenggarakan oleh Simpul Tech dalam rangka seleksi perekrutan.
 
-### Build
-Pastikan di komputer telah ter-*install* `Docker` beserta *docker-compose*. Jalankan perintah berikut untuk membangun (build) kontainer untuk *web service* `Ruby on Rails`:
 
+## Requirements
+- [Docker](https://www.docker.com/)
+- [Docker-compose](https://docs.docker.com/compose/gettingstarted/)
+
+## Build
+1. Buat direktori untuk menampung repositori
 ```sh
-$ docker-compose run --no-deps web rails new . --force --database=postgresql
+$ mkdir chatroom
 ```
-> Jika menggunakan sistem Linux: pastikan untuk menjalankan perintah `Docker` sebagai *user* dengan **UID=1000**
+2. Kloning repositori ini ke dalam direktori `chatroom`
+```sh
+$ cd chatroom
+$ git clone https://github.com/masprast/chatroom_tes
+```
+3. Jalankan perintah berikut untuk membangun sekaligus menjalankan kontainer :
+```sh
+$ docker-compose up --build
+```
+<!-- $ docker-compose run --no-deps web rails new . --force --database=postgresql -->
+> Jika menggunakan sistem Linux **~>** pastikan untuk menjalankan perintah *docker-compose* sebagai *user* dengan UID=1000
+<br/> **note: proses *build* memerlukan beberapa waktu**
 
-### Testing
-Jalankan *browser web* lalu buka alamat `localhost:3000` untuk membuka aplikasi *chatroom*. kemudian ikuti langkah-langkah pengetesan aplikasi *chatroom* sebagai berikut:
-1. Daftarkan diri sebagai user A
-2. Daftarkan diri sebagai user B
-3. 
+<br/>
 
-### Template
-- [https://tailwindcomponents.com/component/chat](chat)
-- [https://tailwindcomponents.com/component/chat-messages](chat-messages)
-- [https://tailwindcomponents.com/component/quickchat-chat-layout](quickchat-chat-layout)
+Cek kontainer berhasil dibangun dan dijalankan :
+```sh
+$ docker ps
+```
 
+## Testing
+### - Local
+Jalankan *browser web* lalu buka alamat `localhost:3000` untuk membuka aplikasi *chatroom* kemudian ikuti langkah-langkah pengetesan aplikasi sebagai berikut:
+
+1. Daftarkan diri sebagai *user* A
+2. Daftarkan diri sebagai *user* B
+3. Buka *tab* baru
+4. Masuk sebagai *user* ke aplikasi pada masing-masing *tab*
+5. Mulai *chat* antar *user* yang telah masuk
+
+### - Cloud
+Jalankan *browser web* lalu buka alamat `...` untuk membuka aplikasi *chatroom*, kemudian ikuti langkah-langkah pengetesan aplikasi sama seperti di atas.
+> *Deployment* aplikasi dilakukan di `GCP` *free tier*
+
+## Template
+<!-- [https://tailwindcomponents.com/component/chat](chat) -->
+<!-- [https://tailwindcomponents.com/component/chat-messages](chat-messages) -->
+<!-- [https://tailwindcomponents.com/component/quickchat-chat-layout](quickchat-chat-layout) -->
+
+## References
+- [Docker sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/)

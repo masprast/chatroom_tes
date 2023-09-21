@@ -25,9 +25,7 @@ docker-compose up --build
 > Jika menggunakan sistem Linux **~>** pastikan untuk menjalankan perintah *docker-compose* sebagai *user* dengan UID=1000
 <br/> **note: proses *build* memerlukan beberapa waktu**
 
-<br/>
-
-Cek kontainer berhasil dibangun dan dijalankan :
+4. Cek kontainer berhasil dibangun dan dijalankan :
 ```sh
 docker ps
 ```

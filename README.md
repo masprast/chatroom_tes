@@ -1,5 +1,7 @@
 ### About
-Ini adalah aplikasi berbasis *web* dengan *backend* menggunakan `Ruby on Rails` dengan *database* `PostgreSQL`. Aplikasi ini dibangun menggunakan teknologi `Docker`. Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* oleh Simpul Tech.
+Ini adalah aplikasi berbasis *web* dengan *backend* menggunakan `Ruby on Rails` dengan *database* `PostgreSQL`. Aplikasi ini dibangun menggunakan teknologi `Docker`. Dan *framework* `Tailwind CSS` untuk presentasi dari aplikasi.
+
+Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang diselenggarakan oleh Simpul Tech dalam rangka seleksi perekrutan.
 
 ### Build
 Pastikan di komputer telah ter-*install* `Docker` beserta *docker-compose*. Jalankan perintah berikut untuk membangun (build) kontainer untuk *web service* `Ruby on Rails`:
@@ -7,7 +9,7 @@ Pastikan di komputer telah ter-*install* `Docker` beserta *docker-compose*. Jala
 ```sh
 $ docker-compose run --no-deps web rails new . --force --database=postgresql
 ```
-> Jika menggunakan sistem Linux: pastikan untuk menjalankan perintah `Docker` dengan *user* dengan **UID:1000**
+> Jika menggunakan sistem Linux: pastikan untuk menjalankan perintah `Docker` sebagai *user* dengan **UID=1000**
 
 ### Testing
 Jalankan *browser web* lalu buka alamat `localhost:3000` untuk membuka aplikasi *chatroom*. kemudian ikuti langkah-langkah pengetesan aplikasi *chatroom* sebagai berikut:

@@ -34,7 +34,7 @@ $ docker ps
 ```
 
 ## Testing
-### - Local
+### # Local
 Jalankan *browser web* lalu buka alamat `localhost:3000` untuk membuka aplikasi *chatroom* kemudian ikuti langkah-langkah pengetesan aplikasi sebagai berikut:
 
 1. Daftarkan diri sebagai *user* A
@@ -43,7 +43,7 @@ Jalankan *browser web* lalu buka alamat `localhost:3000` untuk membuka aplikasi 
 4. Masuk sebagai *user* ke aplikasi pada masing-masing *tab*
 5. Mulai *chat* antar *user* yang telah masuk
 
-### - Cloud
+### # Cloud
 Jalankan *browser web* lalu buka alamat `...` untuk membuka aplikasi *chatroom*, kemudian ikuti langkah-langkah pengetesan aplikasi sama seperti di atas.
 > *Deployment* aplikasi dilakukan di `GCP` *free tier*
 

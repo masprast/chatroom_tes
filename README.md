@@ -1,5 +1,5 @@
 # README
-Ini adalah aplikasi berbasis *web* dengan *backend* menggunakan `Ruby on Rails` dengan *database* `PostgreSQL`. Aplikasi ini dibangun menggunakan teknologi `Docker`. Dan *framework* `Tailwind CSS` untuk presentasi dari aplikasi.
+Ini adalah aplikasi berbasis *web* dengan *backend* menggunakan `Ruby on Rails` dan *database* `PostgreSQL`. Aplikasi ini dibangun menggunakan teknologi kontainer `Docker`. Dan *framework* `Tailwind CSS` untuk presentasi dari aplikasi.
 
 Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang diselenggarakan oleh Simpul Tech dalam rangka seleksi perekrutan.
 
@@ -11,16 +11,15 @@ Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang di
 ## Build
 1. Buat direktori untuk menampung repositori
 ```sh
-$ mkdir chatroom
+mkdir "chatroom" && cd "$_"
 ```
-2. Kloning repositori ini ke dalam direktori `chatroom`
+2. Kloning repositori ini
 ```sh
-$ cd chatroom
-$ git clone https://github.com/masprast/chatroom_tes
+git clone https://github.com/masprast/chatroom_tes
 ```
 3. Jalankan perintah berikut untuk membangun sekaligus menjalankan kontainer :
 ```sh
-$ docker-compose up --build
+docker-compose up --build
 ```
 <!-- $ docker-compose run --no-deps web rails new . --force --database=postgresql -->
 > Jika menggunakan sistem Linux **~>** pastikan untuk menjalankan perintah *docker-compose* sebagai *user* dengan UID=1000
@@ -30,7 +29,7 @@ $ docker-compose up --build
 
 Cek kontainer berhasil dibangun dan dijalankan :
 ```sh
-$ docker ps
+docker ps
 ```
 
 ## Testing
@@ -53,4 +52,4 @@ Jalankan *browser web* lalu buka alamat `...` untuk membuka aplikasi *chatroom*,
 <!-- [https://tailwindcomponents.com/component/quickchat-chat-layout](quickchat-chat-layout) -->
 
 ## References
-- [Docker sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/)
+- [Ruby on Rails - Docker sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/)

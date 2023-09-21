@@ -1,10 +1,14 @@
+version: '3.1'
 services:
   db:
     image: postgres
+    restart: always
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: dbchat
+    ports:
+      - "5432:5432"
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && rails s -b '0.0.0.0'"

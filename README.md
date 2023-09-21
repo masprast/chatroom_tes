@@ -5,7 +5,7 @@ Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang di
 
 
 ## Requirements
-- [Docker](https://www.docker.com/)
+- [Docker >= 23](https://www.docker.com/)
 - [Docker-compose](https://docs.docker.com/compose/gettingstarted/)
 
 ## Build
@@ -17,17 +17,29 @@ mkdir "chatroom" && cd "$_"
 ```sh
 git clone https://github.com/masprast/chatroom_tes
 ```
-3. Jalankan perintah berikut untuk membangun sekaligus menjalankan kontainer :
+3. Jalankan perintah berikut untuk membangun kontainer
 ```sh
-docker-compose up --build
+docker build .
+```
+4. Jalankan perintah berikut untuk menjalankan kontainer
+```sh
+docker-compose up
 ```
 <!-- $ docker-compose run --no-deps web rails new . --force --database=postgresql -->
 > Jika menggunakan sistem Linux **~>** pastikan untuk menjalankan perintah *docker-compose* sebagai *user* dengan UID=1000
 <br/> **note: proses *build* memerlukan beberapa waktu**
+<!-- <br/> Jika sudah selesai, khusus sistem linux, ubah hak milik menjadi *user*
+> ```sh
+> sudo chown -R $USER:$USER .
+> ``` -->
 
-4. Cek kontainer berhasil dibangun dan dijalankan :
+5. Cek kontainer berhasil dibangun dan dijalankan :
 ```sh
 docker ps
+```
+6. Setelah kontainer berjalan, buat database dengan perintah berikut
+```sh
+docker-compose run web rails db:create
 ```
 
 ## Testing

@@ -5,7 +5,7 @@ Ini adalah aplikasi *chatroom* sederhana berbasis *web*.
 * Docker ( `24.0.5` ) **~>** kontainerisasi
 * Redis ( `7.2.1` ) **~>** *database cache*
 * Postgres ( `15` ) **~>** database
-* Tailwind CSS **~>** *framework* tampilan
+* Tailwind CSS ( `CDN` ) **~>** *framework* tampilan
 
 Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang diselenggarakan oleh Simpul Tech dalam rangka seleksi perekrutan.
 

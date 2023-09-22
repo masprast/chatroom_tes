@@ -1,0 +1,17 @@
+<div>
+  <% unless pesan.room.is_private %>
+    <h6 class="name flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"> <%= pesan.user.username %> </h6>
+  <% end %>
+  <%= pesan.content %>
+</div>
+<div class="cont-<%= pesan.user.id %>">
+  <div class="message-box msg-<%= pesan.user.id %> " >
+    <% unless pesan.room.is_private %>
+      <h6 class="name flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"> <%= pesan.user.username %> </h6>
+    <% end %>
+  <%= pesan.content %>
+  </div>
+</div>
+<div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+  <div>Hey How are you today?</div>
+</div>

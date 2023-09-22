@@ -8,12 +8,12 @@ services:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASS}
     ports:
-      - ${POSTGRES_PORT}
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
   cache:
     image: redis:7.2.1-alpine
     restart: always
     ports:
-      - ${REDIS_PORT}
+      - ${REDIS_PORT}:${REDIS_PORT}
     command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASS}
     volumes: 
       - ./tmp/redis_data:/var/lib/redis/data
@@ -23,7 +23,7 @@ services:
     volumes:
       - .:/usr/src/app
     ports:
-      - ${RAILS_PORT}
+      - ${RAILS_PORT}:${RAILS_PORT}
     depends_on:
       - db
       - cache

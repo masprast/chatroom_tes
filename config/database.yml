@@ -17,17 +17,22 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: dbchat
-  host: db
+  # username: postgres
+  # password: dbchat
+  # host: db
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  port: <%= ENV['DB_PORT'] %>
+  host: <%= ENV['DB_HOST'] %>
+  # database: <%= ENV['DB_NAME'] %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: app_development
-
+  # database: app_development
+  database: <%= ENV['DB_NAME'] %>
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is

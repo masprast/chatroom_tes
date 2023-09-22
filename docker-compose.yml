@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 services:
   db:
     image: postgres
@@ -6,15 +6,33 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: dbchat
+      POSTGRES_PASSWORD: ${POSTGRES_PASS}
     ports:
-      - "5432:5432"
+      - ${POSTGRES_PORT}
+  cache:
+    image: redis:7.2.1-alpine
+    restart: always
+    ports:
+      - ${REDIS_PORT}
+    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASS}
+    volumes: 
+      - ./tmp/redis_data:/var/lib/redis/data
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && rails s -b '0.0.0.0'"
     volumes:
       - .:/usr/src/app
     ports:
-      - "3000:3000"
+      - ${RAILS_PORT}
     depends_on:
       - db
+      - cache
+    environment:
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASS}
+      DB_NAME: ${POSTGRES_DB}
+      DB_PORT: ${POSTGRES_PORT}
+      DB_HOST: db
+      REDIS_HOST: cache
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_PASSWORD: ${REDIS_PASS}

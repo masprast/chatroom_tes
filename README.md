@@ -1,5 +1,11 @@
 # README
-Ini adalah aplikasi berbasis *web* dengan *backend* menggunakan `Ruby on Rails` dan *database* `PostgreSQL`. Aplikasi ini dibangun menggunakan teknologi kontainer `Docker`. Dan *framework* `Tailwind CSS` untuk presentasi dari aplikasi.
+Ini adalah aplikasi *chatroom* sederhana berbasis *web*.
+### Tech Stack
+* Ruby on Rails ( `7.0.8` ) **~>** *web server*
+* Docker ( `24.0.5` ) **~>** kontainerisasi
+* Redis ( `7.2.1` ) **~>** *database cache*
+* Postgres ( `15` ) **~>** database
+* Tailwind CSS **~>** *framework* tampilan
 
 Tujuan saya membuat aplikasi ini adalah untuk memenuhi *skill challenge* yang diselenggarakan oleh Simpul Tech dalam rangka seleksi perekrutan.
 
@@ -63,3 +69,5 @@ Jalankan *browser web* lalu buka alamat `...` untuk membuka aplikasi *chatroom*,
 
 ## References
 - [Ruby on Rails - Docker sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/)
+- [Building a Real-Time Chat App in Rails Using ActionCable and Turbo](https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/)
+- [Using Redis with docker and docker-compose for local development a step-by-step tutorial](https://geshan.com.np/blog/2022/01/redis-docker/)

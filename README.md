@@ -63,11 +63,9 @@ Jalankan *browser web* lalu buka alamat `...` untuk membuka aplikasi *chatroom*,
 > *Deployment* aplikasi dilakukan di `GCP` *free tier*
 
 ## Template
-<!-- [https://tailwindcomponents.com/component/chat](chat) -->
-<!-- [https://tailwindcomponents.com/component/chat-messages](chat-messages) -->
-<!-- [https://tailwindcomponents.com/component/quickchat-chat-layout](quickchat-chat-layout) -->
+[https://tailwindcomponents.com/component/quickchat-chat-layout](quickchat-chat-layout)
 
-## References
+<!-- ## References
 - [Ruby on Rails - Docker sample](https://github.com/docker/awesome-compose/tree/master/official-documentation-samples/rails/)
 - [Building a Real-Time Chat App in Rails Using ActionCable and Turbo](https://www.honeybadger.io/blog/chat-app-rails-actioncable-turbo/)
-- [Using Redis with docker and docker-compose for local development a step-by-step tutorial](https://geshan.com.np/blog/2022/01/redis-docker/)
+- [Using Redis with docker and docker-compose for local development a step-by-step tutorial](https://geshan.com.np/blog/2022/01/redis-docker/) -->

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'users/show'
   get 'users/get_name'
-  get 'pesan/create'
-  get 'pesan/p_param'
+  get 'pesans/create'
+  get 'pesans/p_param'
   get 'rooms/index'
   # get 'session/create'
   get '/signin', to: 'session#new'

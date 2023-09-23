@@ -6,12 +6,16 @@ RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg -
 RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_20.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list
 RUN apt-get update -qq && apt-get install -y nodejs libpq5 libpq-dev git postgresql-client
 
-WORKDIR /usr/src/app
-COPY Gemfile Gemfile.lock ./
-RUN bundle install
+ENV RAILS_ROOT /var/www/chat
+WORKDIR $RAILS_ROOT
+COPY Gemfile Gemfile
+COPY Gemfile.lock Gemfile.lock
+RUN bundle install --without development test
 # COPY . .
-# ADD . /usr/src/app/
 RUN rails new . --force --database=postgresql
+RUN bundle add devise
+RUN rails g devise:install
+
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

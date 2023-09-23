@@ -10,7 +10,7 @@ end
 def log_in(user)
   session[:user_id] = user.id
   @current_user = user
-  redirect_to root_path
+  redirect_to root_path(user)
 end
 
 def logged_in?

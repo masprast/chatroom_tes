@@ -1,17 +1,18 @@
 <div>
-  <% unless pesan.room.is_private %>
-    <h6 class="name"> <%= pesan.user.username %> </h6>
+  <% unless pesans.room.is_private %>
+    <h6 class="name"> <%= pesans.user.username %> </h6>
   <% end %>
-  <%= pesan.content %>
-</div>
-<div class="cont-<%= pesan.user.id %>">
-  <div class="message-box msg-<%= pesan.user.id %> " >
-    <% unless pesan.room.is_private %>
-      <h6 class="name"> <%= pesan.user.username %> </h6>
-    <% end %>
-  <%= pesan.content %>
+  <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+    <%= pesans.content %>
   </div>
 </div>
-<div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
-  <div>Hey How are you today?</div>
+<div class="cont-<%= pesans.user.id %>">
+  <div class="message-box msg-<%= pesans.user.id %> " >
+    <% unless pesans.room.is_private %>
+      <h6 class="name"> <%= pesans.user.username %> </h6>
+    <% end %>
+  <div class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl">
+    <%= pesans.content %>
+  </div>
+  </div>
 </div>

@@ -26,15 +26,14 @@
 <div id="messages">
   <%= render @pesans %>
 </div>
-<%= render partial: 'layouts/new_pesan_form' %>
-    <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
   <% end %>
 </div>
 </div> -->
 <div class="flex h-screen antialiased text-gray-800">
     <div class="flex flex-row h-full w-full overflow-x-hidden">
       <div class="flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">        
-     <!-- <div class="ml-2 font-bold text-2xl">QuickChat</div> -->
+        <% if @single_room %>
+        <%= turbo_stream_from @single_room %>
         <%= render 'users/get_name' %>      
         <div class="flex flex-col mt-8">
           <div class="flex flex-row items-center justify-between text-xs">
@@ -61,72 +60,28 @@
           <span class="flex h-8"></span>
           <%= render 'komponen/signout' %>
         </div>
+        <% end %>
       </div>
       <div class="flex flex-col flex-auto h-full p-6">
-        <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4">
-          <div class="flex flex-col h-full overflow-x-auto mb-4">
+          <span class="flex justify-center ml-2 font-bold text-2xl items-center h-8 p-6">
+            
+        <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4 items-center">
+          <div class="flex flex-col h-full w-full overflow-x-auto mb-4">
             <div class="flex flex-col h-full">
               <div class="grid grid-cols-12 gap-y-2">
-
-                <div class="col-start-1 col-end-8 p-3 rounded-lg">
-                  <div class="flex flex-row items-center">
+                <div class="col-start-1 col-end-12 p-3 rounded-lg">
+                  <div class="flex-grow items-center">
                   <% if @single_room %>
-                  <%= turbo_stream_from @single_room %>
-                  <div id="messages">
-                    <%= render @pesans %>
-                  </div>
-                  <%= render partial: 'layouts/new_pesan_form' %>
-                  <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
-                <% end %>                   
-                    
+                    <%= turbo_stream_from @single_room %>
+                    <div id="messages">
+                      <%= render @pesans %>
+                    </div>
+                    <%= render partial: 'layouts/new_pesan_form' %>
+                  <% end %>                 
                   </div>
                 </div>
-                
-              
               </div>
             </div>
-          </div>
-          <div class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
-            <div class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4">
-              <button class="flex flex-row items-center justify-center text-gray-400 hover:text-gray-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13">
-                  </path>
-                </svg>
-              </button>
-              <span/>
-              <button class="flex flex-row items-center justify-center text-gray-400 hover:text-gray-600">
-                  <svg
-                    class="w-6 h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    ></path>
-                  </svg>
-                </button>
-            
-            </div>
-            <div class="flex-grow ml-4">
-              <div class="relative w-full">
-                <input type="text" class="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10"/>
-              </div>
-            </div>
-            <%= render 'komponen/tombolkirim' %>
           </div>
         </div>
       </div>

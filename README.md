@@ -62,7 +62,7 @@ Jalankan *browser web* lalu buka alamat `localhost:3000` untuk membuka aplikasi 
 Jalankan *browser web* lalu buka alamat `...` untuk membuka aplikasi *chatroom*, kemudian ikuti langkah-langkah pengetesan aplikasi sama seperti di atas.
 > *Deployment* aplikasi dilakukan di `GCP` *free tier*
 
-## Template
+## Resources
 [https://tailwindcomponents.com/component/quickchat-chat-layout](quickchat-chat-layout)
 
 <!-- ## References

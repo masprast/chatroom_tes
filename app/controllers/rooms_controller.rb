@@ -5,9 +5,11 @@ class RoomsController < ApplicationController
     @rooms = Room.public_rooms
     @room = Room.new
     @users = User.all_except(@current_user)
+    render 'index'
   end
   def create
     @room = Room.create(name: params["room"]["name"])
+    render 'index'
   end
   def show
   @current_user = current_user

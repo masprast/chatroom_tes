@@ -1,0 +1,10 @@
+
+<h1>Chat Room</h1>
+<% if current_user %>
+<p>Hi, <%= @current_user&.username %> </p>
+  <%= link_to "Start Chatting", rooms_path %>
+  <%= button_to "Logout", signout_path, method: :delete %>
+<% else %>
+  <%= link_to "Login", signin_path %>
+  <%= link_to "Sign Up", signin_path %>
+<% end %>

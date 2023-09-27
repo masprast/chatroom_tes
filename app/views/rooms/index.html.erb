@@ -1,31 +1,45 @@
-<div class="row">
-  <div class="col-md-2">
-    <h5> Hi <%= @current_user.username %> </h5>
-    <h4> Users </h4>
-    <div>
-      <%= turbo_stream_from "users" %>
-      <div id="users">
-        <%= render @users %>
-      </div>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="container">
+<div class="row clearfix">
+    <div class="col-lg-12">
+        <div class="card chat-app">
+          <div id="plist" class="people-list">
+            <h4> Hi, <%= @current_user.username %> </h4>
+            <%= button_to 'Sign Out', signout_path,  :method => :delete %>
+            <h4>Other users</h4>
+            <ul id="users" class="list-unstyled chat-list mt-2 mb-0">
+              <%= turbo_stream_from "users"%>
+              <%= render @users %>
+            </ul>
+            <h4>Rooms</h4>
+            <%= render partial: 'layouts/new_room_form' %>
+            <%= turbo_stream_from "rooms" %>
+            <ul id="rooms" class="list-unstyled chat-list mt-2 mb-0">
+              <%= render @rooms %>
+            </ul>
+          </div>
+
+          <div class="chat">
+              <% if @single_room %>
+                <div class="chat-header clearfix">
+                  <div class="chat-about">
+                    <h5 class="m-b-0">
+                      <%= @user&.username || @single_room.name %>
+                    </h5>
+                  </div>
+                </div>
+                <div class="chat-history">
+                  <%= turbo_stream_from @single_room %>
+                  <ul class="m-b-0">
+                    <%= render @messages %>
+                        
+                  </ul>
+                  <%= render partial: 'layouts/new_message_form' %>
+                </div> 
+              <% end %>
+            </div>
+        </div>
     </div>
-    <h4> Rooms </h4>
-    <%= render partial: "layouts/new_room_form" %>
-    <div>
-      <%= turbo_stream_from "rooms" %>
-      <div id="rooms">
-        <%= render @rooms %>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-10 bg-dark text-light">
-    <% if @single_room %>
-      <h4 class="text-center"> <%= @user&.username || @single_room.name %> </h4>
-      <%= turbo_stream_from @single_room %>
-      <div id="messages">
-        <%= render @messages %>
-      </div>
-      <%= render partial: 'layouts/new_message_form' %>
-    <% end %>
-  </div>
+</div>
 </div>
 

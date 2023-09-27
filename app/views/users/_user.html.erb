@@ -1,1 +1,7 @@
-<div> <%= button_to user.username, signout_path, :method => :delete %> </div>
+<!-- <div> <%= button_to user.username, signout_path, :method => :delete %> </div> -->
+<li class="clearfix">
+<!--    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="avatar">-->
+    <div class="about">
+    <%= link_to user.username, user, :class => 'name' %>
+    </div>
+</li>

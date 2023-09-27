@@ -13,8 +13,8 @@ services:
     image: redis:7.2.1-alpine
     restart: always
     ports:
-      - ${REDIS_PORT}
-    command: redis-server --save 20 1 --loglevel warning --requirepass ${REDIS_PASS}
+      - ${REDIS_PORT}:${REDIS_PORT}
+    command: redis-server
     volumes: 
       - ./tmp/redis:/var/lib/redis/data
   web:
@@ -33,7 +33,5 @@ services:
       DB_NAME: ${POSTGRES_DB}
       DB_PORT: ${POSTGRES_PORT}
       DB_HOST: db
-      REDIS_HOST: cache
       REDIS_PORT: ${REDIS_PORT}
-      REDIS_PASSWORD: ${REDIS_PASS}
-      REDIS_CACHE: redis://cache:${REDIS_PORT}/0
+      REDIS_CACHE: redis://cache:${REDIS_PORT}/1
